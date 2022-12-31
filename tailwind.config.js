@@ -17,6 +17,7 @@ module.exports = {
         'boxSm': '2px 3px 8px 1px #adadad',
         'boxPurple': '4px 4px 10px 2px #2c55acab',
         'headBottomPurple': '0 4px 6px #1e4d8bde',
+        'topShade': '0 20px 10px #0e0c16',
       }
     },
     keyframes: {

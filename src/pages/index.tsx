@@ -12,6 +12,8 @@ export default function Home() {
   
   const [ imageDay, setImageDay ] = useState<ImageDay>({} as ImageDay)
 
+  const [ openImageDay, setOpenImageDay ] = useState(false)
+
   useEffect(() => {
     getMissionManifest()
     getImageDay()
@@ -58,19 +60,23 @@ export default function Home() {
           Travel Space
         </header>
 
-        <div className='flex w-full relative overflow-y-scroll'>
+        <div className='flex flex-col  w-full relative text-white'>
+          <button onClick={() => setOpenImageDay(!openImageDay)} className='self-center flex p-4 px-10 w-80 rounded-t-2xl border-2 border-blue-900 bg-gray-800/60 hover:bg-gray-800 duration-500 items-start justify-between'>
+            View Image 
+          </button>
           
-          <Image alt='' src={imageDay.hdurl} width={2000} height={800} className={'w-full'}/>
-          
-          <div className='absolute mx-10 flex flex-col text-3xl font-medium text-white gap-10 px-10 pb-8 rounded-2xl bg-gray-800/50'>
-            <button className='self-center flex p-4 px-10 w-80 rounded-2xl border-2 border-blue-700 bg-gray-800/60 hover:bg-gray-800 duration-500 items-start justify-between'>
-              View Image 
-            </button>
+          <div className='relative overflow-hidden'>
+            <Image alt='' src={imageDay.hdurl} width={1600} height={800} className={'w-full '}/>
             
-            <text className='self-center text-5xl'>{imageDay.title}</text>
-            <text className='text-5xl text-blue-700 font-semibold'>{imageDay.copyright}</text>
-            <text>{imageDay.date}</text>
-            <text className='leading-relaxed text-gray-400'>{'" ' + imageDay.explanation + ' "'}</text>
+            <div className='absolute top-0'>
+            <div className='absolute top-0 shadow-topShade h-32 -mt-32 z-20 flex'></div>
+              <div className={` mx-10 flex flex-col text-3xl font-medium  gap-10 px-10 p-6 pb-8 rounded-b-2xl bg-gray-900/70 overflow-hidden transition-all  duration-1000 ${openImageDay?'-translate-y-[2000px] ' :'translate-y-0'}`}>
+                <text className='self-center text-5xl'>{imageDay.title}</text>
+                <text className='text-5xl text-blue-700 font-semibold'>{imageDay.copyright}</text>
+                <text>{imageDay.date}</text>
+                <text className='leading-relaxed text-gray-400'>{'" ' + imageDay.explanation + ' "'}</text>
+              </div>
+            </div>
           </div>
         </div>
 
