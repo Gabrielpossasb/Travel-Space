@@ -1,0 +1,13 @@
+.scrollbar & ::-webkit-scrollbar {
+  width: 14px;
+  background-color: #ffffff;
+}
+
+.scrollbar ::-webkit-scrollbar-thumb {
+    background: #12414E;
+    
+}
+
+.scrollbar ::-webkit-scrollbar-corner {
+    background: inherit;
+}
