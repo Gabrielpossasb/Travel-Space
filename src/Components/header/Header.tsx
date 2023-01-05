@@ -8,7 +8,7 @@ export function Header() {
          
          <div className='w-40 h-20 absolute left-20 bg-blue-400 rounded-md shadow-boxLg'></div>
 
-         <text className='shadow-insetTitle font-[Montserrat Subrayada] p-4 px-10 rounded-xl'>
+         <text className='shadow-insetTitle font-[Mina] p-4 px-10 rounded-xl'>
             Home
          </text>
 

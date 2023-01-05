@@ -24,17 +24,17 @@ export function ImageOfDay({imageDay}: imageOfDayProps) {
          
          <div className='relative overflow-hidden max-h-[800px] flex w-full justify-center items-center shadow-box2xl-y'>
 
-            <Image alt='' src={imageDay.url} width={1500} height={1400} className={'bg-contain '}/>
+            <Image alt='' src={imageDay.hdurl} width={1600} height={1200} className={'bg-contain '}/>
             
             <div className='absolute top-0'>
 
-               <div className={`flex flex-col text-2xl font-base gap-10 px-10 p-6 pb-8 rounded-b-2xl bg-black/60 transition-all  duration-700 ${openImageDay?'-translate-y-[1000px] ' :'translate-y-0'}`}>
+               <div className={`flex flex-col text-2xl font-bold gap-10 px-10 py-10 pb-20 rounded-b-2xl bg-black/70 transition-all font-[Mina] duration-700 ${openImageDay?'-translate-y-[1000px] ' :'translate-y-0'}`}>
 
-                  <text className='self-center font-semibold text-4xl text-blue-300'> {imageDay.title} </text>
+                  <text className='self-center text-4xl text-blue-300'> {imageDay.title} </text>
 
-                  <text className='leading-relaxed'> {'" ' + imageDay.explanation + ' "'} </text>
+                  <text className='leading-[3rem] text-xl font-normal'> {'" ' + imageDay.explanation + ' "'} </text>
 
-                  <text className='text-3xl font-semibold'> 
+                  <text className='text-2xl'> 
                      <span className='text-blue-300 mr-4'> By: </span> 
                      {imageDay.copyright}
                   </text>

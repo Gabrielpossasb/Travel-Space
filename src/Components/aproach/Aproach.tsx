@@ -43,11 +43,11 @@ export function Aproach({nearbyObjects}: NearbyObjectsProps) {
    return (
       <div className="flex flex-col gap-14 items-center">
 
-         <text className='shadow-insetTitle p-4 px-10 text-4xl rounded-xl'>
+         <text className='shadow-insetTitle p-4 px-10 text-4xl rounded-xl font-[Montserrat Subrayada]'>
             Nearby Objects
          </text>
 
-         <div className="text-lg flex gap-8 items-end">
+         <div className="text-lg flex font-medium gap-8 items-end font-[Krub]">
 
             <button className={'p-4 mr-8 flex items-center px-4 rounded-xl shadow-boxSm duration-300 w-48 justify-center'}>
                Year - 2023 / 2022
@@ -63,7 +63,7 @@ export function Aproach({nearbyObjects}: NearbyObjectsProps) {
 
          <div className="scrollbar">
 
-         <div className="flex w-full max-w-[100vw] md:max-w-[90vw] gap-20 overflow-x-scroll p-10 px-20 rounded-xl scroll-smooth shadow-boxMd">
+         <div className="flex font-[Mohave] w-full max-w-[100vw] md:max-w-[90vw] gap-20 overflow-x-scroll p-10 px-20 rounded-xl scroll-smooth shadow-boxMd">
             { filtredNearbyObjects.map((val) => { return (
                
                <div key={val.id}  className={'flex flex-col items-center text-center gap-6 min-w-[250px] p-4 px-6 bg-gradient-to-b from-blue-400 to-blue-800 rounded-md shadow-card'}>

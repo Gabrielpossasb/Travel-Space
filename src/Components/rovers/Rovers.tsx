@@ -4,6 +4,8 @@ import Image from 'next/image'
 
 import Curiosity from '../../assets/rovers/RoverCuriosity.jpg'
 import Perseverance from '../../assets/rovers/RoverPerseverance.jpg'
+import Link from 'next/link'
+import { FiArrowRight } from 'react-icons/fi'
 
 interface RoversProps {
    rovers: RoversType[]
@@ -18,7 +20,7 @@ export function Rovers({rovers}: RoversProps) {
             Rovers
          </text>
 
-         <div className='flex flex-col items-center justify-center w-full gap-32'>
+         <div className='flex font-[Mohave] flex-col items-center justify-center w-full gap-32'>
             { rovers.map((val) => { return (
                
                <div key={val.id} className='flex flex-col xl:flex-row items-center w-full max-w-6xl xl:justify-between gap-20 xl:gap-40'>
@@ -49,6 +51,11 @@ export function Rovers({rovers}: RoversProps) {
                      <text className=''>
                         Total Cameras: <span className='text-blue-300 text-2xl'>{val.cameras.length}</span>
                      </text>
+
+                     <Link href={'/RoverImages'} className='hover:underline items-center underline-offset-8 flex gap-2'>
+                        <text className='font-[Mina] font-normal '>See Images</text>
+                        <FiArrowRight size={28}/>
+                     </Link>
                   </div>
                </div>
             )})}
