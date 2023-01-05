@@ -8,7 +8,7 @@
       
    #### Este projeto utiliza a APi da Nasa para acessar informações de forma mais clara. Feito com Next.js e React.js ####
 
-   :link: <https://newsConv.vercel.app/> :link:
+   :link: https://travel-space-gilt.vercel.app :link:
 </div>
 
 ## :computer: Tecnlogias :
