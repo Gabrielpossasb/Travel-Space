@@ -5,7 +5,6 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
   const data = req.body.headers
 
   if ( data.state === 'data_hover') {
-    console.log(data.maxDate)
     const responseHoverData = await api.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${data.maxDate}&api_key=${'sWUFe4oFnFghqeRnplMaKgWSn3sX1IXnSgPMXvU3'}`)
     
     return res.status(201).json({

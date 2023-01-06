@@ -22,17 +22,17 @@ export function ImageOfDay({imageDay}: imageOfDayProps) {
 
          </button>
          
-         <div className='relative overflow-hidden max-h-[800px] flex w-full justify-center items-center shadow-box2xl-y'>
+         <div className='relative overflow-hidden h-[600px] max-h-[900px] flex w-full justify-center items-center shadow-box2xl-y'>
 
             <Image alt='' src={imageDay.hdurl} width={1600} height={1200} className={'bg-contain '}/>
             
             <div className='absolute top-0'>
 
-               <div className={`flex flex-col text-2xl font-bold gap-10 px-10 py-10 pb-20 rounded-b-2xl bg-black/70 transition-all font-[Mina] duration-700 ${openImageDay?'-translate-y-[1000px] ' :'translate-y-0'}`}>
+               <div className={`flex flex-col text-2xl font-bold gap-10 px-10 py-10 pb-20 rounded-b-2xl bg-black/70 transition-all font-[Mina] duration-700 ${openImageDay?'-translate-y-[2000px] ' :'translate-y-0'}`}>
 
-                  <text className='self-center text-4xl text-blue-300'> {imageDay.title} </text>
+                  <text className='self-center text-start text-4xl text-blue-300'> {imageDay.title} </text>
 
-                  <text className='leading-[3rem] text-xl font-normal'> {'" ' + imageDay.explanation + ' "'} </text>
+                  <text className='leading-[1.75rem] sm:leading-[2rem] lg:leading-[3rem] text-lg sm:text-xl h-[300px] overflow-y-scroll font-normal'> {'" ' + imageDay.explanation + ' "'} </text>
 
                   <text className='text-2xl'> 
                      <span className='text-blue-300 mr-4'> By: </span> 

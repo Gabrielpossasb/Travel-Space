@@ -32,6 +32,7 @@ module.exports = {
 
         'card': '15px 15px 30px 10px #0000006e',
         'topMd': '-20px -20px 12px #00000088',
+        'bottomMd': '0 8px 10px #00000077',
 
         'insetTitle': 'inset 5px 5px 15px #00000065',
         'insetSm': 'inset 2px 4px 7px #000000bd , 6px 6px 10px #00000079',
@@ -74,6 +75,8 @@ module.exports = {
       '2xl': '1536px',
       
       'cel': {'max': '639px'},
+
+      'cel500': {'max': '500px'},
     },
   },
   plugins: [],

@@ -15,6 +15,12 @@ const nextConfig = {
         port: '',
         pathname: '/apod/image/**',
       },
+      {
+        protocol: 'https',
+        hostname:'www.gstatic.com',
+        port: '',
+        pathname: '/culturalinstitute/**',
+      },
     ],
   },
 }
