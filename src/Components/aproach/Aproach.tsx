@@ -41,28 +41,28 @@ export function Aproach({nearbyObjects}: NearbyObjectsProps) {
    }
 
    return (
-      <div className="flex flex-col gap-14 items-center">
+      <div className="flex flex-col gap-10 items-center">
 
-         <text className='shadow-insetTitle p-4 px-10 text-4xl rounded-xl font-[Montserrat Subrayada]'>
+         <text className='shadow-insetTitle mb-10 p-4 px-10 text-4xl rounded-xl font-[Montserrat Subrayada]'>
             Nearby Objects
          </text>
 
-         <div className="text-lg flex font-medium gap-8 items-end font-[Krub]">
-
-            <button className={'p-4 mr-8 flex items-center px-4 rounded-xl shadow-boxSm duration-300 w-48 justify-center'}>
-               Year - 2023 / 2022
-            </button>
+         <div className="text-lg flex flex-col md:flex-row items-center font-medium gap-10 items-end font-[Krub]">
 
             <Filter filter={(e) => handleVelocityMaxFiltred(e)} label={'Vel. Max'} options={['0', '10', '20']}/>    
 
             <Filter filter={(e) => handleDiameterFiltred(e)} label={'Diameter'} options={['0', '20', '40', '60']}/>
 
-            <Filter filter={(e) => handlePossibleImpactsFiltred(e)} label={'Possible Impacts'} options={['0', '20', '40', '60', '80']}/>            
+            <Filter filter={(e) => handlePossibleImpactsFiltred(e)} label={'Possible Impacts'} options={['0', '20', '40', '60', '80']}/>     
 
          </div>
 
-         <div className="scrollbar">
+         <button className={'p-2 px-8 font-normal mt-8 border-2 border-blue-600 rounded-3xl shadow-boxSmBlue text-xl flex items-center   px-4 text-shadow-md justify-center'}>
+            Year - 2023 / 2022
+         </button>       
 
+         <div className="scrollbar">
+         
          <div className="flex font-[Mohave] w-full max-w-[100vw] md:max-w-[90vw] gap-20 overflow-x-scroll p-10 px-20 rounded-xl scroll-smooth shadow-boxMd">
             { filtredNearbyObjects.map((val) => { return (
                

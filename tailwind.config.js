@@ -23,7 +23,7 @@ module.exports = {
         }
       },
       boxShadow: {
-        'boxSmBlue': '2px 2px 8px 3px #182229ff',
+        'boxSmBlue': '2px 2px 8px 3px #182025ff',
         'boxSm': '3px 3px 8px 2px #0000004b',
         'boxMd': '4px 4px 14px 4px #0000004b',
         'boxLg': '8px 8px 30px #0000006e',
@@ -77,6 +77,8 @@ module.exports = {
       'cel': {'max': '639px'},
 
       'cel500': {'max': '500px'},
+
+      'mdMax': {'max': '767px'},
     },
   },
   plugins: [],
