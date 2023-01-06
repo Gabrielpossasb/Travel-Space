@@ -16,8 +16,7 @@
 - Next
 - Vercel
 - Figma
-- Nasa APIs
-- APIs utilizadas: 
+- Nasa APIs: :link: https://api.nasa.gov/#browseAPI :link:
 
 ## :rocket: Bibliotecas :
 
@@ -26,3 +25,9 @@
 - Axios
 - React Icons
 - Keen Slider
+
+## :file_folder: APIs Utilizadas :
+
+- Mars Rover Photos
+- APOD
+- SSD/CNEOS - Sentry :link: https://ssd-api.jpl.nasa.gov/doc/sentry.html :link:
