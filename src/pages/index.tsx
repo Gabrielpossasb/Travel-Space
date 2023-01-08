@@ -6,7 +6,7 @@ import { api } from '../services/api'
 import { DataMissionManifest, DataRover, ImageDay, NearbyType, RoversType } from '../services/types'
 
 import Head from 'next/head'
-import Image from 'next/image'
+
 import { Division } from '../Components/Divisor'
 import { Foot } from '../Components/foot/Foot'
 import { Rovers } from '../Components/rovers/Rovers'
@@ -16,8 +16,6 @@ export default function Home() {
 
    const [ rovers, setRovers ] = useState<RoversType[]>([])
 
-   const [ dataRover, setDataRover ] = useState<DataRover[]>([])
-   
    const [ dataManifestHover, setDataManifestHover ] = useState<DataMissionManifest>({} as DataMissionManifest)
    
    const [ imageDay, setImageDay ] = useState<ImageDay>({} as ImageDay)
@@ -44,22 +42,12 @@ export default function Home() {
    async function getMissionManifest() {
       const response = await api.post(`/api/nasa`, {
          headers: {
-         state: 'mission_manifest'
+            state: 'mission_manifest',
+            rover: 'curiosity'
          }
       })
 
       setDataManifestHover(response.data.data)
-   }
-
-   async function getDataHover() {
-      const response = await api.post(`/api/nasa`, {
-         headers: {
-         state: 'data_hover',
-         maxDate: dataManifestHover.max_date
-         }
-      })
-
-      setDataRover(response.data.data)
    }
 
    async function getImageDay() {
@@ -92,9 +80,7 @@ export default function Home() {
 
       <main className='flex flex-col gap-24 items-center'>
 
-         <Header/>
-
-         <Division/>
+         <Header title={'Home'}/>
 
          <ImageOfDay imageDay={imageDay}/>
 
@@ -108,30 +94,10 @@ export default function Home() {
 
             <Aproach nearbyObjects={nearbyObjects}/>    
 
-            <Division/>       
-
-            <button onClick={() => getDataHover()} className='p-4 px-10 bg-blue-600 text-white '>
-               Request
-            </button>
-
-            <div className='grid grid-cols-2 gap-20'>
-            { dataRover.map((val) => (
-               <div key={val.id} className=''>
-                  <Image alt='' src={val.img_src} width={600} height={300} className={'max-w-[500px] max-h-[500px] rounded-xl shadow-boxPurple'}/>
-               
-                  <div className='flex justify-between items-center p-6 text-white bg-blue-800 rounded-2xl -mt-2'>
-                     <text>{val.earth_date}</text>
-                     <text>{val.rover.name}</text>
-                     <text>{val.camera.full_name}</text>
-                  </div>
-               </div>
-               ))
-            }
-            </div>
          </section>
 
-         <Division/>
-
+         <Division/>       
+         
          <Foot/>
          
       </main>

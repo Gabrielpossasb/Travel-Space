@@ -13,7 +13,7 @@ export function ImageOfDay({imageDay}: imageOfDayProps) {
    const [ openImageDay, setOpenImageDay ] = useState(false)
    
    return (
-      <div className='flex flex-col  w-full relative text-white'>
+      <div className='flex flex-col -mt-20 w-full relative text-white'>
 
          <button onClick={() => setOpenImageDay(!openImageDay)} className={`self-center shadow-boxMd flex px-10 w-80 rounded-t-2xl  font-semibold hover:bg-gray-600 duration-300 items-start justify-between ${openImageDay?'p-2 text-xl bg-gray-800 ' :'p-4 text-2xl bg-gray-700'}`}>
 

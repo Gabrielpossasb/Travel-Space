@@ -60,7 +60,10 @@ export function Rovers({rovers}: RoversProps) {
 
                   </div>
 
-                  <Link href={'/RoverImages'} className='hover:underline text-2xl items-center underline-offset-8 flex gap-2'>
+                  <Link  href={{
+                     pathname:"rover-images",
+                     query: { roverID: val.id },   
+                  }} className='hover:underline text-2xl items-center underline-offset-8 flex gap-2'>
                      <text className='font-[Mina] font-normal '>See Images</text>
                      <FiArrowRight size={28}/>
                   </Link>

@@ -7,7 +7,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'mars.nasa.gov',
         port: '',
-        pathname: '/msl-raw-images/**',
+        pathname: '/**',
       },
       {
         protocol: 'https',

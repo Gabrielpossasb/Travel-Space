@@ -40,6 +40,7 @@ module.exports = {
       animation: {
         'rotateSmooth': 'rotateSmooth 1s ease-in-out',
         'selectMoviment': 'selectMoviment 4s infinite ease-in-out',
+        'rotate': 'rotate 1s infinite ease forwards',
       }
     },
     keyframes: {
@@ -61,6 +62,10 @@ module.exports = {
         '67%': { transform: 'translate(-8px, -5px)' },
         '84%': { transform: 'translate(-8px, 5px)' },
         '100%': { transform: 'translate(0px, 0px)' },
+      },
+      'rotate': {
+        '0%': { transform: 'rotate(0deg)' },
+        '100%': { transform: 'rotate(360deg)' },
       }
     },
     screens: {
