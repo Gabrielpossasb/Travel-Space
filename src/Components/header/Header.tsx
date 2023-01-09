@@ -23,7 +23,7 @@ export function Header({title}: HeaderProps) {
                </button>
             )}
             
-            <text className='shadow-insetTitle font-[Mina] p-4 px-10 rounded-xl'>
+            <text className='shadow-insetTitle text-center font-[Mina] p-4 sm:px-10 rounded-xl'>
                {title}
             </text>
          </div>

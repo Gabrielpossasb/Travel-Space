@@ -40,7 +40,7 @@ module.exports = {
       },
       animation: {
         'rotateSmooth': 'rotateSmooth 1s ease-in-out',
-        'selectMoviment': 'selectMoviment 1.5s infinite ease',
+        'selectMoviment': 'selectMoviment 0.5s infinite ease',
         'rotate': 'rotate 1s infinite ease forwards',
       }
     },
@@ -56,11 +56,11 @@ module.exports = {
         '100%': { transform: 'rotate(180deg)' },
       },
       'selectMoviment': {
-        '0%': { transform: 'translate(0px, -10px)' },
+        '0%': { transform: 'rotate(3deg)' },
         
-        '50%': { transform: 'translate(0px, 10px)' },
+        '50%': { transform: 'rotate(-3deg)' },
 
-        '100%': { transform: 'translate(0px, -10px)' },
+        '100%': { transform: 'rotate(3deg)' },
       },
       'rotate': {
         '0%': { transform: 'rotate(0deg)' },

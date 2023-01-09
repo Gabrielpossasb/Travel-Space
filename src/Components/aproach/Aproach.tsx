@@ -43,11 +43,17 @@ export function Aproach({nearbyObjects}: NearbyObjectsProps) {
    return (
       <div className="flex flex-col gap-10 items-center">
 
-         <text className='shadow-insetTitle mb-10 p-4 px-10 text-4xl rounded-xl font-[Montserrat Subrayada]'>
-            Nearby Objects
-         </text>
+         <div className="flex flex-col gap-2">
+            <text className='shadow-insetTitle mb-10 p-4 px-10 text-4xl rounded-xl font-[Montserrat Subrayada]'>
+               Nearby Objects
+            </text>
 
-         <div className="text-lg flex flex-col md:flex-row items-center font-medium gap-10 items-end font-[Krub]">
+            <text className="font-medium text-xl -mt-8 text-gray-500 text-shadow">
+               Filter nearby objects by categories:
+            </text>
+         </div>
+
+         <div className="text-lg flex flex-col md:flex-row items-center font-medium gap-10 font-[Krub]">
 
             <Filter filter={(e) => handleVelocityMaxFiltred(e)} label={'Vel. Max'} options={['0', '10', '20']}/>    
 
@@ -57,7 +63,7 @@ export function Aproach({nearbyObjects}: NearbyObjectsProps) {
 
          </div>
 
-         <button className={'p-2 px-8 font-normal mt-8 border-2 border-blue-600 rounded-3xl shadow-boxSmBlue text-xl flex items-center   px-4 text-shadow-md justify-center'}>
+         <button className={'p-2 sm:px-8 font-normal mt-8 border-2 border-blue-600 rounded-3xl shadow-boxSmBlue text-xl flex items-center   px-4 text-shadow-md justify-center'}>
             Year - 2023 / 2022
          </button>       
 

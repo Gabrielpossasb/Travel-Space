@@ -34,7 +34,7 @@ export function Pagination({
       : []
 
    return(
-      <div className={`flex text-xl gap-5 justify-center overflow-hidden w-full max-w-sm items-center text-gray-800  shadow-boxSm rounded-md `}>
+      <div className={`flex text-xl gap-5 justify-center w-full max-w-sm items-center text-gray-800  shadow-boxSm rounded-md `}>
          <div className={`flex gap-4 p-2 w-full justify-center text-blue-400 font-semibold items-center shadow-smInsetFadeRed`}>
 
             { currentPage > (1 + siblingsCount) && (
