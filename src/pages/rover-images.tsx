@@ -72,7 +72,7 @@ export default function RoverImages() {
             
 
             { rover?.cameras?.map((camera) => (
-               <button disabled={loading} onClick={() => getDataHover(camera.name)} className={`flex p-3 px-4 rounded-xl duration-500 hover:bg-blue-600/50 hover:cursor-pointer items-center justify-center text-center ${cameraSelect===camera.name?'shadow-boxSm bg-blue-600' :'bg-blue-600/0'} ${(loading && cameraSelect===camera.name)&&'min-w-[150px]'}`}>
+               <button disabled={loading} key={camera.id} onClick={() => getDataHover(camera.name)} className={`flex p-3 px-4 rounded-xl duration-500 hover:bg-blue-600/50 hover:cursor-pointer items-center justify-center text-center ${cameraSelect===camera.name?'shadow-boxSm bg-blue-600' :'bg-blue-600/0'} ${(loading && cameraSelect===camera.name)&&'min-w-[150px]'}`}>
                   { (loading && cameraSelect===camera.name) ? (
                      <div className={`w-8 h-8 border-y-2 rounded-full duration-500 animate-rotate transition-all border-white`}></div>
                   ) : (
@@ -97,7 +97,7 @@ export default function RoverImages() {
 
             <div className="flex w-full flex-wrap items-start gap-8 sm:gap-20 justify-center">
                { dataRover.map((val, index) => { return ( index < pagination * 20 && (index >= (pagination *20) - 20)) && (
-                  <div key={index} onClick={() => setImageSelect(val.img_src)} className={`w-[120px] sm:w-[150px] h-[150px] flex items-center bg-gray-800 rounded-md shadow-boxMd hover:duration-300 hover:cursor-pointer  transition-all border-4 border-blue-600 ${val.img_src === imageSelect ?'translate-x-4 -translate-y-2 border-blue-300' :'hover:animate-selectMoviment hover:-translate-y-3'}`}>
+                  <div key={val.id} onClick={() => setImageSelect(val.img_src)} className={`w-[120px] sm:w-[150px] h-[150px] flex items-center bg-gray-800 rounded-md shadow-boxMd hover:duration-300 hover:cursor-pointer  transition-all border-4 border-blue-600 ${val.img_src === imageSelect ?'translate-x-4 -translate-y-2 border-blue-300' :'hover:animate-selectMoviment hover:-translate-y-3'}`}>
                      <Image alt='' src={val.img_src} width={600} height={400} className={'w-full  duration-500 h-auto rounded-md'}/>
                      
                   </div>
