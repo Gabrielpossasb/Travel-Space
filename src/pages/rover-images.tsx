@@ -98,7 +98,7 @@ export default function RoverImages() {
             <div className="flex w-full flex-wrap items-start gap-8 sm:gap-20 justify-center">
                { dataRover.map((val, index) => { return ( index < pagination * 20 && (index >= (pagination *20) - 20)) && (
                   <div key={val.id} onClick={() => setImageSelect(val.img_src)} className={`w-[120px] sm:w-[150px] h-[150px] flex items-center bg-gray-800 rounded-md shadow-boxMd hover:duration-300 hover:cursor-pointer  transition-all border-4 border-blue-600 ${val.img_src === imageSelect ?'translate-x-4 -translate-y-2 border-blue-300' :'hover:animate-selectMoviment hover:-translate-y-3'}`}>
-                     <Image alt='' src={val.img_src} width={600} height={400} className={'w-full  duration-500 h-auto rounded-md'}/>
+                     <Image alt='' src={val.img_src} width={400} height={200} className={'w-full  duration-500 h-auto rounded-md'}/>
                      
                   </div>
                )})}
