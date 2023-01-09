@@ -24,7 +24,7 @@ export function ImageOfDay({imageDay}: imageOfDayProps) {
          
          <div className='relative overflow-hidden flex w-full justify-center items-center shadow-box2xl-y'>
 
-            <Image alt='' src={imageDay.hdurl} width={1400} height={1000} className={'bg-contain w-[100vw] max-w-[100vw] h-auto'}/>
+            <Image alt='' src={imageDay.hdurl} width={1400} height={1000} className={'bg-contain w-[100vw] max-h-[1000px] max-w-[100vw] h-auto'}/>
             
             <div className='absolute top-0'>
 
