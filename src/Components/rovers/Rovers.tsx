@@ -68,7 +68,7 @@ export function Rovers({rovers}: RoversProps) {
                      <FiArrowRight size={28}/>
                   </Link>
 
-                  <div className='flex w-full h-2 bg-gray-600 rounded-full shadow-bottomMd'/>
+                  <div className='flex w-full h-3 bg-gray-600 rounded-full shadow-insetSm'/>
                </div>
             )})}
          </div>

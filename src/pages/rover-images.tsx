@@ -6,8 +6,9 @@ import { DataRover, RoversType } from "../services/types"
 import Image from 'next/image'
 import { Pagination } from "../Components/Pagination/Pagination"
 import { Header } from "../Components/header/Header"
-import { FiSearch } from "react-icons/fi"
 import { Foot } from "../Components/foot/Foot"
+
+import nasaLogo from '../../assets/NasaLogo.png'
 
 export default function RoverImages() {
 
@@ -22,6 +23,8 @@ export default function RoverImages() {
    const [ loading, setLoading ] = useState(false)
 
    const [pagination, setPagination ] = useState(1)
+
+   const [ imageSelect, setImageSelect ] = useState('')
 
    useEffect( () => {
 
@@ -43,12 +46,16 @@ export default function RoverImages() {
    
    async function getDataHover(camera: string) {
       setLoading(true)
+      setPagination(1)
+      setImageSelect('')
+      setCameraSelect(camera)
       const response = await api.post(`/api/nasa`, {
          headers: {
             state: 'data_hover',
             hover: rover.name.toLowerCase(),
             maxDate: rover.max_date,
             camera: camera.toLowerCase(),
+            page: 1
          }
       })
 
@@ -60,43 +67,42 @@ export default function RoverImages() {
       <div className="flex flex-col items-center font-[Mohave] gap-14">
          <Header title={rover.name + ' Images'}/>
          
-         <text className="text-4xl font-semibold text-blue-400 text-shadow-md font-[Mina]">Switch between cameras</text>
+         <text className="text-4xl font-semibold text-center text-blue-400 text-shadow-md font-[Mina]">Switch between cameras</text>
 
          <div className="flex gap-4 text-2xl p-4 border-b-4 border-gray-600 w-full max-w-[1200px] overflow-x-auto items-center justify-start">
+            
+
             { rover?.cameras?.map((camera) => (
-               <div onClick={() => setCameraSelect(camera.name)} className={` p-3 px-6 rounded-xl duration-500 hover:bg-blue-600/50 hover:cursor-pointer ${cameraSelect===camera.name?'shadow-boxSm bg-blue-600' :'bg-transparent'}`}>
-                  {camera.name}
-               </div>
+               <button disabled={loading} onClick={() => getDataHover(camera.name)} className={`flex p-3 min-w-[130px] max-w-[150px] px-6 rounded-xl duration-500 hover:bg-blue-600/50 hover:cursor-pointer items-center justify-center text-center ${cameraSelect===camera.name?'shadow-boxSm bg-blue-600' :'bg-transparent'}`}>
+                  { (loading && cameraSelect===camera.name) ? (
+                     <div className={`w-8 h-8 border-y-2 rounded-full duration-500 animate-rotate transition-all border-white`}></div>
+                  ) : (
+                     <text className="flex w-[100px]">{camera.name}</text>
+                  )} 
+                  
+               </button>
             ))}
          </div>
 
-         <button disabled={cameraSelect===''?true:false} onClick={() => getDataHover(cameraSelect)} className='p-4 px-10 bg-blue-600 text-white shadow-boxSm rounded-md hover:shadow-boxSmBlue duration-300'>
-            
-               <text className="flex gap-4 items-center text-xl"> Search Images 
-                  { loading ? (
-                     <div className={`w-8 h-8 border-y-2 rounded-full duration-500 animate-rotate transition-all border-white`}></div>
-                  ) : (
-                     <FiSearch size={32} className='hover:animate-rotate'/>
-                  )} 
-               </text>
+         <Pagination totalCountOfRegisters={dataRover.length} currentPage={pagination} onPageChange={(e) => setPagination(e)} registersPerPage={25}/>
+         <text className="font-medium text-lg -mt-8 text-gray-500">CLICK the images to expand.</text>
 
-         </button>
+         <div className='flex w-full flex-col items-center justify-center gap-20 cel:p-4 px-10 lg:px-20 relative'>
 
-         <Pagination totalCountOfRegisters={dataRover.length} currentPage={pagination} onPageChange={(e) => setPagination(e)} registersPerPage={10}/>
-
-         <div className='grid grid-cols-2 gap-20'>
-         { dataRover.map((val, index) => { return ( index < pagination * 10 && (index >= (pagination * 10) - 10)) && (
-            <div key={val.id} className='max-w-[600px] flex flex-col shadow-boxMd bg-transparent rounded-lg'>
-               <Image alt='' src={val.img_src} width={600} height={400} className={'w-full h-auto rounded-xl shadow-boxPurple'}/>
-            
-               <div className='flex justify-between h-full text-xl font-normal items-start p-6 text-white bg-blue-800 rounded-b-2xl -mt-2'>
-                  <text>{val.earth_date}</text>
-                  <text className="text-2xl font-semibold">{val.rover.name}</text>
-                  <text className="w-32">{val.camera.full_name}</text>
+            {  imageSelect !== '' && (
+               <div className="flex w-full px-8 sm:px-20 max-w-[1200px] justify-center duration-500 transition-all rounded-md ">
+                  <Image alt="" src={imageSelect} width={800} height={600} className='w-full max-w-[800px] h-auto transition-all rounded-md  duration-500 shadow-card'/>
                </div>
+            )}
+
+            <div className="flex w-full flex-wrap items-start gap-8 sm:gap-20 justify-center">
+               { dataRover.map((val, index) => { return ( index < pagination * 10 && (index >= (pagination * 10) - 10)) && (
+                  <div key={val.id} onClick={() => setImageSelect(val.img_src)} className={`w-[120px] sm:w-[150px] h-[150px] flex items-center bg-gray-800 rounded-md hover:duration-300 hover:cursor-pointer  transition-all border-4 border-blue-600 ${val.img_src === imageSelect ?'translate-x-4 -translate-y-2 border-blue-300' :'hover:animate-selectMoviment hover:-translate-y-3'}`}>
+                     <Image alt='' src={val.img_src} width={600} height={400} className={'w-full shadow-boxMd duration-500 h-auto rounded-md shadow-boxPurple'}/>
+                     
+                  </div>
+               )})}
             </div>
-            )})
-         }
          </div>
 
          <Foot/>

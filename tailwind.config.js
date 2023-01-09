@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         gray: {
           '200': '#a0a0a0',
+          '500': '#494949',
           '600': '#2e2e2e',
           '700': '#2B2B2B',
           '800': '#232323',
@@ -35,11 +36,11 @@ module.exports = {
         'bottomMd': '0 8px 10px #00000077',
 
         'insetTitle': 'inset 5px 5px 15px #00000065',
-        'insetSm': 'inset 2px 4px 7px #000000bd , 6px 6px 10px #00000079',
+        'insetSm': 'inset 2px 4px 7px #00000085 , 6px 6px 10px #00000079',
       },
       animation: {
         'rotateSmooth': 'rotateSmooth 1s ease-in-out',
-        'selectMoviment': 'selectMoviment 4s infinite ease-in-out',
+        'selectMoviment': 'selectMoviment 1.5s infinite ease',
         'rotate': 'rotate 1s infinite ease forwards',
       }
     },
@@ -55,13 +56,11 @@ module.exports = {
         '100%': { transform: 'rotate(180deg)' },
       },
       'selectMoviment': {
-        '0%': { transform: 'translate(0px, 0px)' },
-        '17%': { transform: 'translate(8px, 5x)' },
-        '34%': { transform: 'translate(8px, -5px)' },
-        '50%': { transform: 'translate(0px, 0px)' },
-        '67%': { transform: 'translate(-8px, -5px)' },
-        '84%': { transform: 'translate(-8px, 5px)' },
-        '100%': { transform: 'translate(0px, 0px)' },
+        '0%': { transform: 'translate(0px, -10px)' },
+        
+        '50%': { transform: 'translate(0px, 10px)' },
+
+        '100%': { transform: 'translate(0px, -10px)' },
       },
       'rotate': {
         '0%': { transform: 'rotate(0deg)' },
