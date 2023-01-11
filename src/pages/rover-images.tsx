@@ -71,16 +71,17 @@ export default function RoverImages() {
          <div className="flex  mb-8  gap-4 text-2xl p-4 border-b-4 py-8 pb-16 max-h-[400px] border-gray-600 w-full max-w-[1200px] overflow-x-auto overflow-y-hidden items-center justify-start">
             
 
-            { rover?.cameras?.map((camera) => (
-               <button disabled={loading} key={camera.id} onClick={() => getDataHover(camera.name)} className={`flex p-3 px-4 rounded-xl duration-500 hover:bg-blue-600/50 hover:cursor-pointer items-center justify-center text-center ${cameraSelect===camera.name?'shadow-boxSm bg-blue-600' :'bg-blue-600/0'} ${(loading && cameraSelect===camera.name)&&'min-w-[150px]'}`}>
-                  { (loading && cameraSelect===camera.name) ? (
-                     <div className={`w-8 h-8 border-y-2 rounded-full duration-500 animate-rotate transition-all border-white`}></div>
-                  ) : (
-                     <text className="flex">{camera.name}</text>
-                  )} 
-                  
-               </button>
-            ))}
+            { rover?.cameras?.map((camera) => { 
+               return  (
+                  <button disabled={loading} key={camera.id} onClick={() => getDataHover(camera.name)} className={`flex p-3 px-4 rounded-xl duration-500 hover:bg-blue-600/50 hover:cursor-pointer items-center justify-center text-center ${cameraSelect===camera.name?'shadow-boxSm bg-blue-600' :'bg-blue-600/0'} ${(loading && cameraSelect===camera.name)&&'min-w-[150px]'}`}>
+                     { (loading && cameraSelect===camera.name) ? (
+                        <div className={`w-8 h-8 border-y-2 rounded-full duration-500 animate-rotate transition-all border-white`}></div>
+                     ) : (
+                        <text className="flex">{camera.name}</text>
+                     )} 
+                  </button>
+               )
+            })}
          </div>
 
          <Pagination totalCountOfRegisters={dataRover.length} currentPage={pagination} onPageChange={(e) => setPagination(e)} registersPerPage={20}/>

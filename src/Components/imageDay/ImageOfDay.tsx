@@ -22,13 +22,15 @@ export function ImageOfDay({imageDay}: imageOfDayProps) {
 
          </button>
          
-         <div className='relative overflow-hidden flex w-full justify-center items-center shadow-box2xl-y'>
+         <div className='relative overflow-hidden flex w-full h-[1000px] justify-center items-center shadow-box2xl-y'>
 
-            <Image alt='' src={imageDay.hdurl} width={1400} height={1000} className={'bg-contain w-[100vw] max-h-[1000px] max-w-[100vw] h-auto'}/>
-            
+           
+            <Image alt='' src={imageDay.hdurl} fill className={'object-contain max-w-[100vw] shadow-boxMd  max-h-[1200px]'}/>
+          
+
             <div className='absolute top-0'>
 
-               <div className={`flex flex-col h-[1000px] text-xl font-bold gap-4 sm:gap-10 px-6 py-10 pb-20 rounded-b-2xl bg-black/70 transition-all font-[Mina] duration-1000 ${openImageDay?'-translate-y-[2000px] ' :'translate-y-0'}`}>
+               <div className={`flex flex-col h-[1000px] text-xl font-bold gap-4 sm:gap-10 px-6 py-10 pb-20 bg-black/60 transition-all font-[Mina] duration-1000 ${openImageDay?'-translate-y-[2000px] ' :'translate-y-0'}`}>
 
                   <text className='self-center text-start mdMax:text-2xl text-4xl text-blue-300'> {imageDay.title} </text>
 
