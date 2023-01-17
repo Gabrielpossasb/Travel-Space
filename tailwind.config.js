@@ -25,16 +25,20 @@ module.exports = {
       },
       boxShadow: {
         'boxSmBlue': '2px 2px 8px 3px #182025ff',
+        'boxSmBlack': '3px 3px 8px 2px #00000093',
+
         'boxSm': '3px 3px 8px 2px #0000004b',
         'boxMd': '4px 4px 14px 4px #0000004b',
         'boxLg': '8px 8px 30px #0000006e',
         'boxXl': '29px 16px 26px #0000003D',
         'box2xl-y': '0px -12px 24px 8px #00000066 , 0px 12px 24px 8px #00000066',
 
+        'nav': '0 0 8px 4px #232323',
         'card': '15px 15px 30px 10px #0000006e',
         'topMd': '-20px -20px 12px #00000088',
         'bottomMd': '0 8px 10px #00000077',
 
+        'insetFull': 'inset 0 0 10px 8px #00000065',
         'insetTitle': 'inset 5px 5px 15px #00000065',
         'insetSm': 'inset 2px 4px 7px #00000085 , 6px 6px 10px #00000079',
       },
@@ -42,6 +46,8 @@ module.exports = {
         'rotateSmooth': 'rotateSmooth 1s ease-in-out',
         'selectMoviment': 'selectMoviment 0.5s infinite ease',
         'rotate': 'rotate 1s infinite ease forwards',
+        'openNav': 'openNav 1s ease-in-out forwards',
+        'closeNav': 'openNav 1s ease-in-out reverse',
       }
     },
     keyframes: {
@@ -56,16 +62,21 @@ module.exports = {
         '100%': { transform: 'rotate(180deg)' },
       },
       'selectMoviment': {
-        '0%': { transform: 'rotate(3deg)' },
+        '0%': { transform: 'rotate(1deg)' },
         
-        '50%': { transform: 'rotate(-3deg)' },
+        '50%': { transform: 'rotate(-1deg)' },
 
-        '100%': { transform: 'rotate(3deg)' },
+        '100%': { transform: 'rotate(1deg)' },
       },
       'rotate': {
         '0%': { transform: 'rotate(0deg)' },
         '100%': { transform: 'rotate(360deg)' },
-      }
+      },
+      'openNav': {
+        '0%': { width: '64px', },
+        '50%': { width: '500px', height: '64px'},
+        '100%': { width: '500px', height: '600px' },
+      },
     },
     screens: {
       'sm': '640px',

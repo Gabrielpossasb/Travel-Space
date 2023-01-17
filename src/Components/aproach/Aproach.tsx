@@ -41,7 +41,7 @@ export function Aproach({nearbyObjects}: NearbyObjectsProps) {
    }
 
    return (
-      <div className="flex flex-col gap-10 items-center">
+      <div id='Nearby'  className="flex flex-col gap-10 items-center">
 
          <div className="flex flex-col gap-2">
             <text className='shadow-insetTitle mb-10 p-4 px-10 text-4xl rounded-xl font-[Montserrat Subrayada]'>

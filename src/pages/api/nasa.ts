@@ -16,7 +16,7 @@ export default async function handler( req: NextApiRequest, res: NextApiResponse
   }
 
   if ( data.state === 'image_day') {
-    const imageDay = await api.get(`https://api.nasa.gov/planetary/apod?api_key=${'sWUFe4oFnFghqeRnplMaKgWSn3sX1IXnSgPMXvU3'}`)
+    const imageDay = await api.get(`https://api.nasa.gov/planetary/apod?&date=${data.date}&api_key=${'sWUFe4oFnFghqeRnplMaKgWSn3sX1IXnSgPMXvU3'}`)
 
     return res.status(201).json({
       data: imageDay.data

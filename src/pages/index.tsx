@@ -3,7 +3,7 @@ import { Aproach } from '../Components/aproach/Aproach'
 import { Header } from '../Components/header/Header'
 import { ImageOfDay } from '../Components/imageDay/ImageOfDay'
 import { api } from '../services/api'
-import { DataMissionManifest, DataRover, ImageDay, NearbyType, RoversType } from '../services/types'
+import { DataMissionManifest, NearbyType, RoversType } from '../services/types'
 
 import Head from 'next/head'
 
@@ -18,13 +18,10 @@ export default function Home() {
 
    const [ dataManifestHover, setDataManifestHover ] = useState<DataMissionManifest>({} as DataMissionManifest)
    
-   const [ imageDay, setImageDay ] = useState<ImageDay>({} as ImageDay)
-   
    const [ nearbyObjects, setNearbyObjects ] = useState<NearbyType[]>([])
 
    useEffect(() => {
       getMissionManifest()
-      getImageDay()
       getRovers()
       getNearbyObjects()
    }, [])
@@ -50,16 +47,6 @@ export default function Home() {
       setDataManifestHover(response.data.data)
    }
 
-   async function getImageDay() {
-      const response = await api.post(`/api/nasa`, {
-         headers: {
-         state: 'image_day'
-         }
-      })
-
-      setImageDay(response.data.data)
-   }
-
    async function getNearbyObjects() {
       const response = await api.post(`/api/nasa`, {
          headers: {
@@ -78,26 +65,26 @@ export default function Home() {
          <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='flex flex-col gap-24 items-center'>
+      <main className='flex flex-col gap-24 items-center h-[100vh] overflow-y-scroll scroll-smooth'>
 
          <Header title={'Home'}/>
 
-         <ImageOfDay imageDay={imageDay}/>
+         <ImageOfDay/>
 
          <Division/>
 
-         <section className='flex flex-col items-center gap-24 p-4  sm:p-10 font-semibold'>
+         <section className='flex flex-col items-center gap-24 p-4 sm:p-10 font-semibold scroll-smooth'>
 
             <Rovers rovers={rovers}/>
 
             <Division/>
 
-            <Aproach nearbyObjects={nearbyObjects}/>    
+            <Aproach nearbyObjects={nearbyObjects}/>  
+
+            <Division/>  
 
          </section>
 
-         <Division/>       
-         
          <Foot/>
          
       </main>
